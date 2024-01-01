@@ -1,18 +1,9 @@
-// ./webpack.config.js
+const nodeExternals = require("webpack-node-externals");
+const path = require("path");
 
-import nodeExternals from "webpack-node-externals";
-import path from "path";
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// 이후의 webpack.config.js 설정...
-
-
-export default {
+module.exports = {
     mode: "development",
-    context: `${__dirname}/src`,
+    context: __dirname + '/src',
     entry: {
         app: '../index.js',
     },
@@ -22,16 +13,16 @@ export default {
     },
     module: {
         rules: [
-            {
-                test: /\.js$/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: ["@babel/preset-env"],
-                    },
-                },
-                exclude: /node_modules/,
+        {
+            test: /\.js$/,
+            use: {
+            loader: "babel-loader",
+            options: {
+                presets: ["@babel/preset-env"],
             },
+            },
+            exclude: /node_modules/,
+        },
         ],
     },
     target: "node",
@@ -39,4 +30,4 @@ export default {
         node: true,
     },
     externals: [nodeExternals()],
-};
+    };

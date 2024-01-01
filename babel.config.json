@@ -1,0 +1,8 @@
+{
+    "presets": [
+      ["@babel/env", {
+        "modules": false // ES6 모듈 문법을 유지
+      }]
+    ]
+  }
+  

@@ -1,5 +1,5 @@
 import express from 'express';
-//import { specs } from './config/swagger.config.js';
+import { specs } from './config/swagger.config.js';
 import SwaggerUi from 'swagger-ui-express';
 import dotenv from 'dotenv';
 import cors from 'cors';
